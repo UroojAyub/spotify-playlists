@@ -1,0 +1,6 @@
+const SIGN_IN = 'SIGN_IN';
+const SIGN_OUT = 'SIGN_OUT';
+const FETCH_PLAYLISTS = 'FETCH_PLAYLISTS';
+
+
+export default { SIGN_IN, SIGN_OUT, FETCH_PLAYLISTS }
