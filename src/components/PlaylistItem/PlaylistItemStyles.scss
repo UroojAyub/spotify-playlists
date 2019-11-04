@@ -1,0 +1,40 @@
+.playlist-item {
+    margin: 0 25px;
+    // flex: 1;
+    max-width: 185px;
+    width: 185px;
+
+    .playlist-container {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+
+        .img-wrapper {
+            border-radius: 50%;
+            overflow: hidden;
+            width: 150px;
+            height: 150px;
+
+            img {
+                cursor: pointer;
+                width: 100%;
+                transition: all 0.2s ease-in;
+
+                &:hover,
+                &:focus {
+                    transform: scale(1.2);
+                }
+            }
+        }
+
+        .playlist-content {
+            margin: 10px 0;
+            text-align: center;
+
+            .playlist-heading a {
+                color: white !important;
+            }
+        }
+    }
+}
