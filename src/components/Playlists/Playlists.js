@@ -9,19 +9,13 @@ const Playlists = ({ auth, fetchPlaylists }) => {
 
     useEffect(() => {
         console.log(auth)
-        let promises = [];
-        for (let i = 0; i <= 50; i++) {
-            promises.push(fetch('https://jsonplaceholder.typicode.com/posts') )
-        }
-        Promise.all(promises).then(console.log)
         if (auth) {
-            // fetchPlaylist();
-
+            fetchPlaylist();
         }
     }, [auth, fetchPlaylist]);
 
     return (
-        <div>
+        <div className="playlists-container">
             <PlaylistGroup header="My Playlists" playlistType="user" />
             <PlaylistGroup header="Featured Playlists" playlistType="featured" />
         </div>

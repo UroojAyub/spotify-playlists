@@ -1,5 +1,6 @@
 import ACTIONS from './constants';
 import spotify from './../apis/spotify';
+import history from './../history';
 
 
 
@@ -14,6 +15,7 @@ export const signIn = (token) => {
                 payload: { token, userName: response.data.display_name }
             });
             console.log(response)
+            history.replace('/')
         }
         catch (error) {
             console.log(error.response)

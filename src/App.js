@@ -3,21 +3,23 @@ import './App.css';
 import Auth from './components/Auth';
 import 'semantic-ui-css/semantic.min.css';
 import { Container, Header } from 'semantic-ui-react';
-import { BrowserRouter } from "react-router-dom";
+import { Router, Route, Switch } from "react-router-dom";
 import Playlists from './components/Playlists/Playlists';
+import history from './history';
 
 function App() {
   return (
     <div className="app">
       <Container>
-        <BrowserRouter>
+        <Router history={history}>
           <Header as="h1" textAlign="center">Spotify Playlists</Header>
           <Auth />
-          <div className="playlists-container">
-          <Playlists/>
-            
-          </div>
-        </BrowserRouter>
+          <Playlists />
+          <Switch>
+            <Route path="/" exact component={Playlists} />
+            {/* <Route path="/playlist/:id" component={StreamShow} /> */}
+          </Switch>
+        </Router>
       </Container>
     </div>
   );

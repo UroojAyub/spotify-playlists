@@ -15,10 +15,10 @@ const PlaylistGroup = (props) => {
 
     if (props.playlists) {
         return (
-            <Segment vertical>
+            <Segment vertical basic>
                 <Header>{props.header}</Header>
                 <Divider />
-                <List horizontal>{playlistView}</List>
+                <List horizontal className="playlist-group">{playlistView}</List>
             </Segment>
         )
     }
