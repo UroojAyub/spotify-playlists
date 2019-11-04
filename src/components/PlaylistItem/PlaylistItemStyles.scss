@@ -1,0 +1,32 @@
+.playlist-item {
+    margin: 0 25px;
+
+    .playlist-container {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        .img-wrapper {
+            border-radius: 50%;
+            overflow: hidden;
+
+            img {
+                cursor: pointer;
+                transition: all 0.2s ease-in;
+                &:hover,
+                &:focus {
+                    transform: scale(1.2);
+                }
+            }
+        }
+
+        .playlist-content {
+            margin: 10px 0;
+            text-align: center;
+
+            .playlist-heading {
+                color: white !important;
+            }
+        }
+    }
+}

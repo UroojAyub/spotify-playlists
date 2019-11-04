@@ -4,7 +4,7 @@ import Auth from './components/Auth';
 import 'semantic-ui-css/semantic.min.css';
 import { Container, Header } from 'semantic-ui-react';
 import { BrowserRouter } from "react-router-dom";
-import PlaylistGroup from './components/PlaylistGroup';
+import Playlists from './components/Playlists/Playlists';
 
 function App() {
   return (
@@ -14,7 +14,8 @@ function App() {
           <Header as="h1" textAlign="center">Spotify Playlists</Header>
           <Auth />
           <div className="playlists-container">
-            <PlaylistGroup />
+          <Playlists/>
+            
           </div>
         </BrowserRouter>
       </Container>
