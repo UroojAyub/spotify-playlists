@@ -8,7 +8,6 @@ const Playlists = ({ auth, fetchPlaylists }) => {
     const fetchPlaylist = useCallback(fetchPlaylists, [auth]);
 
     useEffect(() => {
-        console.log(auth)
         if (auth) {
             fetchPlaylist();
         }
