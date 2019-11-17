@@ -15,7 +15,7 @@ export const signIn = (token) => {
                 payload: { token, userName: response.data.display_name }
             });
             console.log(response)
-            history.replace('/')
+            history.push('/playlists')
         }
         catch (error) {
             console.log(error.response)
@@ -36,16 +36,6 @@ export const fetchPlaylists = () => {
             const { token } = getState().auth;
             const myPlaylist = await spotify.get('/me/playlists', { headers: { 'Authorization': "Bearer " + token } });
             const featuredPlaylist = await spotify.get('/browse/featured-playlists', { headers: { 'Authorization': "Bearer " + token } });
-            // let trackDataPromises = playlists.map(playlist => {
-            //     let responsePromise = fetch(playlist.tracks.href, {
-            //         headers: { 'Authorization': 'Bearer ' + accessToken }
-            //     })
-            //     let trackDataPromise = responsePromise
-            //         .then(response => response.json())
-            //     return trackDataPromise
-            // })
-            // let allTracksDataPromises =
-            //     Promise.all(trackDataPromises)
 
             dispatch({
                 type: ACTIONS.FETCH_PLAYLISTS,
@@ -56,5 +46,32 @@ export const fetchPlaylists = () => {
             console.log(error.response)
 
         }
+    }
+}
+
+export const fetchPlaylistTracks = (id) => {
+    return async (dispatch, getState) => {
+        try {
+            const { token } = getState().auth;
+            const tracks = await spotify.get(`/playlists/${id}/tracks`, { headers: { 'Authorization': "Bearer " + token } });
+            dispatch({
+                type: ACTIONS.FETCH_TRACKS,
+                payload: { tracks: tracks.data.items.map(item => item.track) }
+            });
+            dispatch({
+                type: ACTIONS.SELECT_TRACK,
+                payload: { id: tracks.data.items[0].track.id }
+            })
+        }
+        catch (error) {
+            console.log(error.response)
+
+        }
+    }
+}
+export const selectTrack = (id) => {
+    return {
+        type: ACTIONS.SELECT_TRACK,
+        payload: { id }
     }
 }

@@ -1,0 +1,20 @@
+.tracks-container {
+    margin-top: 30px !important;
+}
+
+.track-header,
+.track-description {
+    color: white !important;
+    cursor: pointer;
+}
+
+
+.track-detail-col {
+    display: flex !important;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.track-detail-card{
+    width: 60% !important;
+}
